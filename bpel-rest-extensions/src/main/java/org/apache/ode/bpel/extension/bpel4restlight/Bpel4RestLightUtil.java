@@ -263,13 +263,13 @@ public class Bpel4RestLightUtil {
 
         // Check if a concrete variable name ("varName") or a reference to the value of
         // a variable is specified ("$bpelVar[varName]")
-        if (variableValueReference.contains(VARIABLE_VALUE_REFERENCE)) {
-        	int startIndexOfVarReference = variableValueReference.indexOf(VARIABLE_VALUE_REFERENCE);
-            int endIndexOfVarReference = variableValueReference.indexOf("]");
+        while (variableValue.contains(VARIABLE_VALUE_REFERENCE)) {
+        	int startIndexOfVarReference = variableValue.indexOf(VARIABLE_VALUE_REFERENCE);
+            int endIndexOfVarReference = variableValue.indexOf("]");
         	
-            String variableName = variableValueReference.substring(startIndexOfVarReference + VARIABLE_VALUE_REFERENCE.length(), endIndexOfVarReference);
+            String variableName = variableValue.substring(startIndexOfVarReference + VARIABLE_VALUE_REFERENCE.length(), endIndexOfVarReference);
             
-            String prefix = variableValueReference.startsWith(VARIABLE_VALUE_REFERENCE) ? "" : variableValue.substring(0, startIndexOfVarReference);
+            String prefix = variableValue.startsWith(VARIABLE_VALUE_REFERENCE) ? "" : variableValue.substring(0, startIndexOfVarReference);
         	String suffix = variableValue.length() > endIndexOfVarReference + 1 ? variableValue.substring(endIndexOfVarReference + 1) : "";
 
             Variable variable = context.getVisibleVariables().get(variableName);

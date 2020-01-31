@@ -256,17 +256,17 @@
         <repository>
             <id>1_wso2</id>
             <name>WSO2 Repository</name>
-            <url>http://dist.wso2.org/maven2/</url>
+            <url>https://dist.wso2.org/maven2/</url>
         </repository>
         <repository>
             <id>2_central</id>
             <name>Maven Central Repository</name>
-            <url>http://central.maven.org/maven2/</url>
+            <url>https://central.maven.org/maven2/</url>
         </repository>
         <repository>
             <id>3_vanto</id>
             <name>Vanto Maven Repository</name>
-            <url>http://people.apache.org/~vanto/m2/</url>
+            <url>https://people.apache.org/~vanto/m2/</url>
         </repository>
     </repositories>
 

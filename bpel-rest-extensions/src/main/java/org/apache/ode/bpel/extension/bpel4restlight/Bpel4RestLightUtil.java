@@ -260,6 +260,7 @@ public class Bpel4RestLightUtil {
     public static String resolveVariableValueReference(ExtensionContext context,
             String variableValueReference) throws FaultException {
         String variableValue = variableValueReference;
+        logger.debug("Resolving variable value reference for: {}", variableValueReference);
 
         // Check if a concrete variable name ("varName") or a reference to the value of
         // a variable is specified ("$bpelVar[varName]")
@@ -268,6 +269,7 @@ public class Bpel4RestLightUtil {
             int endIndexOfVarReference = variableValue.indexOf("]");
         	
             String variableName = variableValue.substring(startIndexOfVarReference + VARIABLE_VALUE_REFERENCE.length(), endIndexOfVarReference);
+            logger.debug("Found variable name to resolve: {}", variableName);
             
             String prefix = variableValue.startsWith(VARIABLE_VALUE_REFERENCE) ? "" : variableValue.substring(0, startIndexOfVarReference);
         	String suffix = variableValue.length() > endIndexOfVarReference + 1 ? variableValue.substring(endIndexOfVarReference + 1) : "";
@@ -277,10 +279,12 @@ public class Bpel4RestLightUtil {
             // We only support simple type variables, therefore the value of the variable is
             // directly provided within a <temporary-simple-type-wrapper/> element.
             if (variable != null && isSimpleType(variable.type)) {
+                logger.debug("Variable is of simple type and can be resolved!");
                 Node variableContent = context.readVariable(variableName);
 
                 if (variableContent.getTextContent() != null) {
-                	// Return the value of the variable plus the optionally specified prefix and suffix as result 
+                	// Return the value of the variable plus the optionally specified prefix and suffix as result
+                    logger.debug("Replacing variable with following value: {}", variableContent.getTextContent());
                     variableValue = prefix + variableContent.getTextContent() + suffix;
                 }
             } else {

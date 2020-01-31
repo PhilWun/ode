@@ -13,6 +13,6 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 
-repositories.remote << "http://repo1.maven.org/maven2"
-repositories.remote << "http://people.apache.org/~vanto/m2/"
+repositories.remote << "https://repo1.maven.org/maven2"
+repositories.remote << "https://people.apache.org/~vanto/m2/"
 

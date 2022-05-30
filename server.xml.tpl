@@ -90,7 +90,7 @@
 
     <!-- Define an AJP 1.3 Connector on port 8009 -->
     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443"
-               maxSwallowSize="-1" />
+               maxSwallowSize="-1" secretRequired="false" />
 
 
     <!-- An Engine represents the entry point (within Catalina) that processes

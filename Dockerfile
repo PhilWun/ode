@@ -19,7 +19,7 @@ RUN jruby -S bundler install --gemfile=/workspace/Gemfile \
 FROM tomcat:8.5-jre8
 LABEL maintainer "Johannes Wettinger <jowettinger@gmail.com>, Michael Wurster <miwurster@gmail.com>, Michael Hahn <mhahn.dev@gmail.com>"
 
-ARG DOCKERIZE_VERSION=v0.3.0
+ARG DOCKERIZE_VERSION=v0.6.1
 
 ENV TOMCAT_USERNAME admin
 ENV TOMCAT_PASSWORD admin
@@ -38,6 +38,8 @@ ADD manager.xml ${CATALINA_HOME}/conf/Catalina/localhost/manager.xml
 ADD server.xml.tpl ${CATALINA_HOME}/conf/server.xml.tpl
 ADD axis2.xml.tpl ${CATALINA_HOME}/webapps/ode/WEB-INF/conf/axis2.xml.tpl
 ADD log4j2.xml.tpl ${CATALINA_HOME}/webapps/ode/WEB-INF/classes/log4j2.xml.tpl
+
+RUN mkdir ${CATALINA_HOME}/webapps/manager
 
 EXPOSE 9763
 

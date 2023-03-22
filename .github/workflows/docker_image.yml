@@ -31,14 +31,14 @@ jobs:
           context: apache-buildr/jruby-jdk8
           platforms: linux/amd64
           load: true
-          tags: sathwik/apache-buildr:linux/amd64
+          tags: sathwik/apache-buildr:amd64
       - name: Build Apache Buildr
         uses: docker/build-push-action@v4
         with:
           context: apache-buildr/jruby-jdk8
           platforms: linux/arm64
           load: true
-          tags: sathwik/apache-buildr:linux/arm64
+          tags: sathwik/apache-buildr:arm64
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4

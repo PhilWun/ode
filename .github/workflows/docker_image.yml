@@ -29,9 +29,16 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: apache-buildr/jruby-jdk8
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           load: true
-          tags: sathwik/apache-buildr:latest-jruby-jdk8
+          tags: sathwik/apache-buildr:linux/amd64
+      - name: Build Apache Buildr
+        uses: docker/build-push-action@v4
+        with:
+          context: apache-buildr/jruby-jdk8
+          platforms: linux/arm64
+          load: true
+          tags: sathwik/apache-buildr:linux/arm64
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
@@ -47,6 +54,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
+          file: Dockerfile-workflow
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}

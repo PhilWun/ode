@@ -1,6 +1,4 @@
-==============
-  Apache ODE
-==============
+# Apache ODE
 
 Apache ODE is a WS-BPEL compliant web services orchestration engine.
 It organizes web services calls following a process description
@@ -34,3 +32,13 @@ Finally here is a non exhaustive but representative features list:
  with virtually any communication layer or even embed it.
 
 
+## Docker
+### Build image on M1 Processor
+
+Clone the repo https://github.com/sathwik/docker-buildr go to the folder `jruby-jdk8` build the image with:
+
+`docker build -t sathwik/apache-buildr:latest-jruby-jdk8 .`
+
+Go to the ODE folder and build the image with:
+
+`docker build -t opentosca/ode:latest .`

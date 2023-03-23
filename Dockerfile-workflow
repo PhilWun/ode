@@ -1,4 +1,4 @@
-FROM sathwik/apache-buildr:$TARGETARCH as builder
+FROM localhost:5000/sathwik/apache-buildr:latest-jruby-jdk8 as builder
 
 ENV JAVA_OPTS="-Xmx1024M -XX:MaxPermSize=512M"
 ENV BUILDR_ARGS="-f Rakefile clean package test=no JAVADOC=off"

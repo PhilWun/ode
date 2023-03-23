@@ -45,6 +45,8 @@ jobs:
           platforms: linux/arm64
           load: true
           tags: sathwik/apache-buildr:arm64
+      - name: List images # TODO: remove
+        run: docker image ls
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4

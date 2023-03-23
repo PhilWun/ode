@@ -25,14 +25,20 @@ jobs:
         with:
           repository: sathwik/docker-buildr
           path: apache-buildr
-      - name: Build Apache Buildr
+      - name: Fix dockerfile
+        run: |
+          cp .github/workflows/fix.diff apache-buildr/fix.diff
+          cd apache-buildr
+          git apply fix.diff
+          cd ..
+      - name: Build Apache Buildr for amd64
         uses: docker/build-push-action@v4
         with:
           context: apache-buildr/jruby-jdk8
           platforms: linux/amd64
           load: true
           tags: sathwik/apache-buildr:amd64
-      - name: Build Apache Buildr
+      - name: Build Apache Buildr for arm64
         uses: docker/build-push-action@v4
         with:
           context: apache-buildr/jruby-jdk8

@@ -29,7 +29,7 @@ jobs:
         run: |
           cp .github/workflows/fix.diff apache-buildr/fix.diff
           cd apache-buildr
-          git apply fix.diff
+          git apply --unidiff-zero fix.diff
           cd ..
       - name: Build Apache Buildr for amd64
         uses: docker/build-push-action@v4

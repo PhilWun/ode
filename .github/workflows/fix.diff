@@ -1,7 +1,0 @@
-diff --git a/jruby-jdk8/Dockerfile b/jruby-jdk8/Dockerfile
-index 53362e0..056be78 100644
---- a/jruby-jdk8/Dockerfile
-+++ b/jruby-jdk8/Dockerfile
-@@ -23 +23 @@ RUN echo 'gem: --no-rdoc --no-ri' >> /.gemrc
--RUN gem install bundler
-+RUN gem install bundler -v 2.3.26
